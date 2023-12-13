@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import MaxWidthWrapper from './MaxWidthWrapper'
+import { buttonVariants } from './ui/button'
+import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/server'
+
 
 const Navbar = async () => {
 
@@ -11,6 +14,18 @@ const Navbar = async () => {
             <Link href={"/"} className='flex z-40 font-semibold'>
               <span>quill</span>
             </Link>
+            <div className='hidden items-center space-x-4 sm:flex'>
+              <>
+                <Link href={"/pricing"} className={buttonVariants({
+                  variant: "ghost",
+                  size: 'sm'
+                })}>Pricing</Link>
+                <LoginLink className={buttonVariants({
+                  variant: "ghost",
+                  size: 'sm'
+                })} >Sign in</LoginLink>
+              </>
+            </div>
           </div>
         </MaxWidthWrapper>
       </header>
